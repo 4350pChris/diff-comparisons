@@ -9,11 +9,11 @@ def main():
     old_file = dir + "old.xml"
     new_file = dir + "new.xml"
 
-    xml_result = xml_diff(old_file, new_file)
-    write_output(dir + "diff.xml", xml_result.__str__())
+    with open(dir + "xml_diff.html", "w", encoding="utf-8") as xml_out_stream:
+        xml_diff(old_file, new_file, xml_out_stream)
 
     text_result = text_diff(old_file, new_file)
-    write_output(dir + "diff.html", text_result)
+    write_output(dir + "text_diff.html", text_result)
 
 
 if __name__ == "__main__":

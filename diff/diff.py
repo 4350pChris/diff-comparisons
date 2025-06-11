@@ -1,7 +1,6 @@
-from xmldiff import main, formatting
-from formatter.html_formatter import HTMLFormatter
 from utils.utils import get_proper_path
 from difflib import HtmlDiff
+from graphtage import xml, printer
 
 
 def read_file_and_split(file: str) -> list[str]:
@@ -24,20 +23,9 @@ def text_diff(left: str, right: str):
     )
 
 
-def make_formatter(klass: type[formatting.XMLFormatter]) -> formatting.XMLFormatter:
-    """
-    Returns a formatter instance of the given class.
-    """
-    return klass()
-
-
-def xml_diff(left: str, right: str):
-    formatter = make_formatter(HTMLFormatter)
-    return main.diff_files(
-        get_proper_path(left),
-        get_proper_path(right),
-        formatter=formatter,
-        diff_options={
-            'fast_match': True,
-        }
-    )
+def xml_diff(left: str, right: str, out_stream=None):
+    from_tree = xml.build_tree(get_proper_path(left))
+    to_tree = xml.build_tree(get_proper_path(right))
+    diff = from_tree.diff(to_tree)
+    formatter = xml.XMLFormatter()
+    formatter.print(printer.HTMLPrinter(out_stream=out_stream), diff)
