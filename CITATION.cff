@@ -11,6 +11,7 @@ authors:
   - given-names: Chris-Robin
     family-names: Ennen
     email: cite@ennen.dev
+date-released: '2025-07-15'
 repository-code: 'https://github.com/4350pChris/diff-comparisons'
 abstract: >-
   Comparisons of German legal texts, specifically
