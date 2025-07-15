@@ -1,0 +1,26 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: diff-comparisons
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Chris-Robin
+    family-names: Ennen
+    email: cite@ennen.dev
+repository-code: 'https://github.com/4350pChris/diff-comparisons'
+abstract: >-
+  Comparisons of German legal texts, specifically
+  GAPInVeKoSV, using the python libraries xmldiff and
+  diffutils for structural and textual comparisons,
+  respectively.
+keywords:
+  - XML
+  - Legal Texts
+  - python
+  - Germany
+  - Bachelor
+license: MIT
