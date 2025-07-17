@@ -26,13 +26,10 @@ def recurse_dir(path: str):
     Go through all directories under the given path and run the comparison for each dir that contains old.xml and new.xml files.
     """
     import os
-    for root, dirs, files in os.walk(path):
+    for root, _, files in os.walk(path):
         if "old.xml" in files and "new.xml" in files:
             without_prefix = root.replace(DIR_PREFIX, "")
             run_comparision(without_prefix)
-        else:
-            for d in dirs:
-                recurse_dir(os.path.join(root, d))
 
 
 def main():
